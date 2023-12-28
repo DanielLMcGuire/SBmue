@@ -1,18 +1,24 @@
-# Directories
-node_modules/
-.history/
-.vscode/
-build/
-.idea/
-dist/
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Files
-package-lock.json
-.stylelintcache
-yarn-error.log
-.eslintcache
-stats.json
-yarn.lock
-keys.json
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-*.zip
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
