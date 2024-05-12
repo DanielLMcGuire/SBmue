@@ -1,14 +1,14 @@
-import variables from 'config/variables';
+import variables from 'modules/variables';
 import { PureComponent } from 'react';
 import { ToastContainer } from 'react-toastify';
 
-import Background from 'features/background/Background';
-import Widgets from 'features/misc/views/Widgets';
-import Modals from 'features/misc/modals/Modals';
+import Background from 'components/widgets/background/Background';
+import Widgets from 'components/widgets/Widgets';
+import Modals from 'components/modals/Modals';
 
-import { loadSettings, moveSettings } from 'utils/settings';
+import { loadSettings, moveSettings } from 'modules/helpers/settings';
 
-import EventBus from 'utils/eventbus';
+import EventBus from 'modules/helpers/eventbus';
 
 export default class App extends PureComponent {
   componentDidMount() {
@@ -18,7 +18,7 @@ export default class App extends PureComponent {
     if (!localStorage.getItem('firstRun') || !localStorage.getItem('stats')) {
       moveSettings();
       window.location.reload();
-    }
+    }    
 
     loadSettings();
 
@@ -31,24 +31,14 @@ export default class App extends PureComponent {
     variables.stats.tabLoad();
   }
 
-  componentWillUnmount() {
-    EventBus.off('refresh');
-  }
-
   render() {
     return (
       <>
-        {localStorage.getItem('background') === 'true' && <Background />}
-        <ToastContainer
-          position="bottom-right"
-          autoClose={localStorage.getItem('toastDisplayTime') || 2500}
-          newestOnTop={true}
-          closeOnClick
-          pauseOnFocusLoss
-        />
-        <div id="center">
-          <Widgets />
-          <Modals />
+        {(localStorage.getItem('background') === 'true') ? <Background/> : null}
+        <ToastContainer position='bottom-right' autoClose={localStorage.getItem('toastDisplayTime') || 2500} newestOnTop={true} closeOnClick pauseOnFocusLoss/>
+        <div id='center'>
+          <Widgets/>
+          <Modals/>
         </div>
       </>
     );

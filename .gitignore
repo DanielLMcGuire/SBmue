@@ -1,18 +1,12 @@
 # Directories
 node_modules/
-.history/
 .vscode/
 build/
-.idea/
-dist/
 
 # Files
 package-lock.json
-.stylelintcache
 yarn-error.log
 .eslintcache
 stats.json
 yarn.lock
-keys.json
-.DS_Store
 *.zip

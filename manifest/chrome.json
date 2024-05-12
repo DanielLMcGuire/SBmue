@@ -1,12 +1,12 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "offline_enabled": true,
   "default_locale": "en",
   "name": "__MSG_name__",
   "description": "__MSG_description__",
-  "version": "7.0.0",
+  "version": "6.0.0",
   "homepage_url": "https://muetab.com",
-  "action": {
+  "browser_action": {
     "default_icon": "icons/128x128.png"
   },
   "chrome_url_overrides": {
@@ -17,7 +17,9 @@
     "48": "icons/48x48.png",
     "128": "icons/128x128.png"
   },
+  "content_security_policy": "script-src 'self' https://api.bing.com https://www.google.com; object-src 'self'",
   "background": {
-    "service_worker": "background.js"
+    "persistent": false,
+    "scripts": [ "background-chrome.js" ]
   }
 }
